@@ -8,10 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
-/**
- * Hello world!
- *
- */
 @Configuration
 @ComponentScan
 @EnableScheduling
