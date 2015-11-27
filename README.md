@@ -2,7 +2,7 @@
 Zookeeper as Dynamic PropertySource for Spring app
 
 
-This is a simple Spring app demontrating the use of Zookeeper as the property source/config store.
+This is a simple Spring app demonstrating the use of Zookeeper as the property source/config store.
 
 #### Libraries used:
 Apache Zookeeper  

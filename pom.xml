@@ -5,8 +5,10 @@
   <artifactId>dynamic-spring-configuration</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>dynamic-spring-configuration</name>
+  <packaging>war</packaging>
 
   <properties>
+    <jdk.version>1.7</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.cloud.version>1.0.2.RELEASE</spring.cloud.version>
     <spring.cloud.zookeeper.version>1.0.0.M2</spring.cloud.zookeeper.version>
@@ -24,6 +26,22 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -33,6 +51,22 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -70,7 +104,16 @@
   </dependencies>
 
   <build>
+    <finalName>service</finalName>
     <plugins>
+      <!-- Set a JDK compiler level -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>

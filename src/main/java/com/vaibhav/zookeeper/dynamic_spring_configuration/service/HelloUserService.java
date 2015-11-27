@@ -11,7 +11,10 @@ public class HelloUserService {
     @Autowired
     Environment environment;
     
-    @Scheduled(fixedRate=3000)
+    /**
+     * Print the name property at the scheduled rate
+     */
+    @Scheduled(fixedRate=5000)
     public void greetUser() {
         String user = environment.getRequiredProperty("name");
         System.out.format("Hello %s!\n", user);
